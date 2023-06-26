@@ -1,0 +1,47 @@
+*{
+    box-sizing: border-box;
+    margin: 0%;
+}
+
+header{
+    width: 100%;
+    border: solid 10px rgb(234, 192, 53);
+}
+
+#navSuperior {
+    background-color: #FFF3DC;
+    border: solid 3px rgb(246, 217, 162);
+}
+
+.login{
+    width: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+#formulario{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 75px 0px;
+}
+input{
+    width: 100%;
+    height: 30px;
+    margin: 10px;
+}
+#aviso{
+    color: rgb(234, 45, 45);
+}
+footer {
+    width: 100%;
+    height: auto;
+    border: solid 5px gray;
+    background-color: rgb(166, 159, 159);
+    text-align: center;
+    color: rgb(4, 4, 4);
+    padding: 5px;
+}
