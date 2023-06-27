@@ -5,7 +5,7 @@
 
 header{
     width: 100%;
-    border: solid 10px rgb(234, 192, 53);
+    border: solid 10px rgb(20, 20, 20);
 }
 
 #navSuperior {
@@ -15,23 +15,37 @@ header{
 
 .login{
     width: 100%;
-    background-color: black;
+    background: linear-gradient(rgb(218, 232, 184), rgb(225, 193, 133), white);
     color: white;
     display: flex;
     justify-content: center;
 }
 #formulario{
     width: 60%;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 75px 0px;
+    background-color: black;
+    box-shadow: 27px 27px 27px  rgb(4, 4, 4,0.5);
 }
 input{
-    width: 100%;
+    width: 60%;
     height: 30px;
-    margin: 10px;
+    margin: 20px;
+}
+#captcha-create{
+    width: 25%;
+    height: 30px;
+    background-color: aliceblue;
+    color: black;
+    text-align: center;
+}
+#ingreso-captcha{
+    width: 50%;
+    text-align: center;
 }
 #aviso{
     color: rgb(234, 45, 45);
@@ -41,7 +55,33 @@ footer {
     height: auto;
     border: solid 5px gray;
     background-color: rgb(166, 159, 159);
-    text-align: center;
     color: rgb(4, 4, 4);
     padding: 5px;
+    text-align: center;
 }
+.contacto-redes{
+   display: flex;
+   justify-content: space-around;
+}
+.contactos{
+    width: 50%;
+    display: flex;
+   
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.redes{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    border: solid 4px black;
+}
+@media screen and (max-width: 600px){
+    #formulario{
+        width: 90%;
+        height: 500px;
+       
+    }
+}
+    
