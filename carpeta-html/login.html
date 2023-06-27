@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="../carpeta-css/login.css   ">
-
+    
 </head>
 
 <body>
@@ -35,7 +35,7 @@
                     </li>
 
                 </ul>
-            
+
             </div>
         </div>
     </nav>
@@ -46,20 +46,43 @@
             <input type="text" id="usuario">
 
             <label for="contraseña">Contraseña</label>
-            <input type="password" id="contraseña">
-            <p id="aviso"></p>
+            <input type="current-pasword" id="contraseña">
+
+            <div id="captcha-create">
+                <p id="captcha-generator"></p>
+            </div>
+            <div id="ingreso-captcha">
+                <input type="text" id="captchaIngresado" placeholder="Ingrese captcha">
+                <button  id="reload-btn"><img src="../iconos/recarga.png" width="26px"></button>
+                <p id="aviso"></p>
+            </div>
             <button type="submit" id="btnIngresar">Ingresar</button>
-        </form>
+           
+</form>
     </div>
 
     <footer>
-        <p>Contacto</p>
-        <a href=""><img src="../images/whatsapp.jpg" width="50px"></a>--tel: 3512835959
-       
-        <p>nataliasalort11@gmail.com</p>
-        <p>*Pagina creada por Mariano Catala y Natalia Salort/ junio de 2023.</p>
+        <h4>Contactos</h4>
+        <div class="contacto-redes">
 
+            <div class="contactos">
+                <a href=""><img src="../iconos/whatsapp.jpg" width="30px"></a>
+                <p><img src="../iconos/telefono.png" width="30px"> 351 2835959</p>
+                <a href=""><img src="../iconos/mail.png" width="30px"> nataliasalort11@gmail.com</a>
+
+            </div>
+            <div class="redes">
+                <h4>Redes</h4>
+                <a href=""><img src="../iconos/facebook .png" width="25px"></a>
+
+                <a href=""><img src="../iconos/instagram.png" width="50px"></a>
+            </div>
+        </div>
+        <div>
+            <p>*Pagina creada por Mariano Catala y Natalia Salort/ junio de 2023.</p>
+        </div>
     </footer>
+    <script src="../carpeta-js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
