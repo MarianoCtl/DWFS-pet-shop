@@ -8,21 +8,21 @@
 
 const usuarios = [
     {
-        "usuario": "natalia",
-        "contraseña": 1234
+        "mail": "natalia@gmail",
+        "contrasena": 1234
     },
     {
-        "usuario": "mariano",
-        "contraseña": 1235
+        "mail": "mariano@gmail",
+        "contrasena": 1235
     },
     {
-        "usuario": "sofia",
-        "contraseña": 1236
+        "mail": "sofia@gmail",
+        "contrasena": 1236
     }
 ]
 //creamos una funcion que genere un captcha de letras
 function generarCaptcha() {
-    const letras = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNñÑoOpPqQrRsStTuUvVwWxXyYzZ";
+    const letras = "aAbBcCdDeEfFgGhHiIjJkKlLmMnoOpPqQrRsStTuUvVwWxXyYzZ";
     let password = "";
     for (let i = 0; i < 5; i++) {
         let aleatorio = Math.floor(Math.random() * letras.length);
@@ -34,14 +34,14 @@ function generarCaptcha() {
 let nuevoCaptcha = document.getElementById("captcha-generator");
 document.addEventListener("DOMContentLoaded", (e) => {
     e.preventDefault()
-    nuevoCaptcha.innerHTML=generarCaptcha();
+    nuevoCaptcha.innerHTML = generarCaptcha();
 })
 
 //cuando se necesite refrescar el captcha, se hace click en el btn.
 let btnRefreshCaptcha = document.getElementById("reload-btn");
 btnRefreshCaptcha.addEventListener("click", (e) => {
     e.preventDefault;
-    nuevoCaptcha.innerHTML =  generarCaptcha();
+    nuevoCaptcha.innerHTML = generarCaptcha();
 });
 
 //funcion comprobar captcha. 
@@ -63,20 +63,24 @@ btnIngresar.addEventListener("click", (e) => {
     e.preventDefault();
     //traemos los valores ingresados, usuario, contraseña y captcha.
     let usuario_ingresado = document.getElementById("usuario").value;
-    let contrasena_ingresada = document.getElementById("contraseña").value;
+    let contrasena_ingresada = document.getElementById("contrasena").value;
     let captchaIngresado = document.getElementById("captchaIngresado").value;
-    let captchaActual= document.getElementById("captcha-generator").textContent;
-    
+    let captchaActual = document.getElementById("captcha-generator").textContent;
+
     if (comprobar_captcha(captchaActual, captchaIngresado, acceso) == true) {
         //con el for, busca dentro del arreglo si coinciden los valores usuario y contraseña ingresados.
-        for (let i = 0; i < usuarios.length; i++) {
-            if (usuarios[i].usuario == usuario_ingresado && usuarios[i].contraseña == contrasena_ingresada) {
-                window.location.href = "../carpeta-html/inventario.html";
-            } else {
-                document.getElementById("aviso").innerHTML = "Usuario y o contraseña incorrectos. Intente nuevamente." //avisa que hay error
+        if (usuario_ingresado.length && contrasena_ingresada.length) {
+            for (let i = 0; i < usuarios.length; i++) {
+                if (usuarios[i].mail == usuario_ingresado && usuarios[i].contrasena == contrasena_ingresada) {
+                    document.getElementById("aviso").innerHTML = ""
+                    window.location.href = "../carpeta-html/inventario.html";
+                }
             }
+
+        }else{ 
+            document.getElementById("aviso").innerHTML = "Usuario y o contraseña incorrectos. Intente nuevamente." //avisa que hay error
         }
-    } else {
+    }else {
         document.getElementById("aviso").innerHTML = "Captcha incorrecto";
     }
 })
