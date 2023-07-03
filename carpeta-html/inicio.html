@@ -4,20 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../images/icono_small_pets.png" type="image/x-icon">
     <link rel="stylesheet" href="../carpeta-css/inicio.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <title>Small pets-Inicio</title>
+    <title>Small pets - Inicio</title>
 </head>
 
 <body>
     <nav id="navSuperior" class="navbar navbar-expand-lg sombra">
         <div class="container-fluid">
             <a class="navbar-brand" href="inicio.html">
-                <img src="../images/pet_shop.jpg" alt="Logo" width="30" height="24"
-                    class="d-inline-block align-text-top">
-                Small Pets
+                <img src="../images/icono_small_pets.png" alt="Icono small pets" height="34">
+                <img src="../images/nombre_small_pets.png" alt="Nombre small pets" height="24">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,43 +28,42 @@
                     <li class="nav-item">
                         <a class="nav-link" href="productos.html">Productos</a>
                     </li>
-
+                    <li class="nav-item" id="navInventario"></li>
                 </ul>
-                <a class="btn btn-outline-dark" href="login.html">Ingresar</a>
+                <div class="d-flex align-content-center align-items-center" id="navLog"></div>
             </div>
         </div>
     </nav>
-
-    <header>
-        
-        <div class="leter d-none d-md-flex">
-            <h1>Small pets</h1>
+    <header class="d-flex justify-content-center align-content-center">
+        <div class="d-none d-md-flex">
+            <img src="../images/banner_small_pets.png" alt="Banner small pets">
         </div>
-        <div class="carrusel">
-            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-
+        <div class="carrusel d-flex justify-content-center align-items-center">
+            <div id="carouselHeader" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-
-                        <img src="../images/imagen_tienda.jpg" class="d-block w-100" alt="..." width="100%%" height="200px">
+                        <img src="../images/carrousel_01.png" class="d-block carousel-img" alt="Temporada de descuentos"
+                            height="240" width="240">
                     </div>
                     <div class="carousel-item">
-                        <img src="../images/accesorios.jpg" class="d-block w-100" alt="..." width="100%"
-                            height="200px">
+                        <img src="../images/carrousel_02.png" class="d-block carousel-img" alt="Accesorios" height="240"
+                            width="240">
                     </div>
                     <div class="carousel-item">
-                        <img src="../images/adopta.jpg" class="d-block w-100" alt="..." width="100%" height="200px">
+                        <img src="../images/carrousel_03.png" class="d-block carousel-img" alt="Adopta" height="240"
+                            width="240">
                     </div>
                     <div class="carousel-item">
-                        <img src="../images/vejez.png" class="d-block w-100" alt="..." width="100%" height="200px">
+                        <img src="../images/carrousel_04.png" class="d-block carousel-img" alt="Horarios" height="240"
+                            width="240">
                     </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselHeader"
                     data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselHeader"
                     data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
@@ -72,73 +71,69 @@
             </div>
         </div>
     </header>
-
-
-
-
-   
-
-    <div class="clearfix  container-sm">
-        <img src="../images/amante-de-las-mascotas.jpg" class="col-md-3 float-md-end ms-md-2  mb-3" alt="..."
-            width="50%">
-
+    <div id="historiaDiv" class="container">
+        <img src="../images/pets_family.png" class="col-md-3 float-md-end ms-md-2  mb-3" alt="Pets Family" width="50%">
         <h4>
-            Somos una compañia dedicada desde 1985 al cuidado exclusivo y complementario de tus mascotas.
-            Contamos
-            con una amplia variedad de productos alimenticios para felinos, caninos, conejos, coballos,
-            hamnsters,
-            aves y peces.
+            Desde 1985, somos una compañía especializada en el cuidado exclusivo y complementario de tus queridas mascotas. Nuestro catálogo incluye una amplia variedad de productos alimenticios para felinos, caninos, conejos, caballos, hámsters, aves y peces.
         </h4>
-
         <h4>
-            Acompañamos tambien en la calida de vida de tu mascota con nuestra amplia gama de vestimentas,
-            accesorios, productos de higiene para sus cuidados y elementos de distraccion para entretenerse.
+            No solo nos enfocamos en la alimentación, también acompañamos la calidad de vida de tu mascota con una extensa gama de vestimentas, accesorios y productos de higiene para sus cuidados. Además, disponemos de elementos de distracción para mantenerlos entretenidos.
         </h4>
-
         <h4>
-            Te invitamos a descubrir nuestros productos y conocer todos los beneficios que podemos ofrecer para
-            tu
-            mascota!!
+            ¡Te invitamos a descubrir nuestros productos y a conocer todos los beneficios que podemos ofrecer para el bienestar de tus mascotas!
         </h4>
-
-
     </div>
-
     <footer class="container-fluid">
-        <div class="container-md">
+        <div class="">
             <div class="row">
-                <div class="col-sm-8  mb-sm-3">
+                <div class="col-12 col-md-8">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Contacto</h5>
-                            <a href="#" class="btn btn-outline-success "><i class="bi bi-whatsapp"></i></a>
-                            <i class="bi bi-telephone-inbound-fill"> 351 2835959</i><br>
-                            <a href="#" class="btn-outline-dangerous "><i class="bi bi-envelope-paper-heart">
-                            nataliasalort11@gmail.com </i></a>
+                            <div class="d-md-flex justify-content-around align-items-center">
+                                <h6 class="col-12 col-md-2">Natalia Salort</h6>
+                                <a href="https://wa.me/5493512835959" class="btn btn-outline-success col-12 col-md-4"
+                                    target="_blank"><i class="bi bi-whatsapp"></i> 351 2835959</a>
+                                <a href="mailto:nataliasalort11@gmail.com"
+                                    class="btn btn-outline-danger col-12 col-md-4"><i
+                                        class="bi bi-envelope-paper-heart"></i> nataliasalort11@gmail.com</a>
+                            </div>
+                            <div class="d-md-flex justify-content-around align-items-center mt-1">
+                                <h6 class="col-12 col-md-2">Mariano Catalá</h6>
+                                <a href="https://wa.me/5492914703828" class="btn btn-outline-success col-12 col-md-4"
+                                    target="_blank"><i class="bi bi-whatsapp"></i> 291 4703828</a>
+                                <a href="mailto:mariano.ctl@gmail.com" class="btn btn-outline-danger col-12 col-md-4"><i
+                                        class="bi bi-envelope-paper"></i> mariano.ctl@gmail.com</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4 ">
+                <div class="col-12 col-md-4 ">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Redes</h5>
-                            <a href="#" class="btn  btn-outline-primary"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="btn btn-outline-warning"><i class="bi bi-instagram"></i></a>
+                            <div class="d-md-flex justify-content-around align-items-center">
+                                <h6 class="col-12 col-md-2">Natalia</h6>
+                                <a href="https://www.facebook.com/" class="btn btn-outline-primary col-12 col-md-4"
+                                    target="_blank"><i class="bi bi-facebook"></i> Facebook</a>
+                                <a href="https://www.instagram.com/" class="btn btn-outline-warning col-12 col-md-4"
+                                    target="_blank"><i class="bi bi-instagram"></i> Instagram</a>
+                            </div>
+                            <div class="d-md-flex justify-content-around align-items-center mt-1">
+                                <h6 class="col-12 col-md-2">Mariano</h6>
+                                <a href="https://www.facebook.com/" class="btn btn-outline-primary col-12 col-md-4"
+                                    target="_blank"><i class="bi bi-facebook"></i> Facebook</a>
+                                <a href="https://www.instagram.com/marianoc_/"
+                                    class="btn btn-outline-warning col-12 col-md-4" target="_blank"><i
+                                        class="bi bi-instagram"></i> Instagram</a>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="container-fluid   mb-sm-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <p>*Pagina creada por Mariano Catala y Natalia Salort/ junio de 2023.</p>
-
-                        </div>
-
                     </div>
                 </div>
             </div>
         </div>
     </footer>
+    <script src="../carpeta-js/inicio.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
         </script>

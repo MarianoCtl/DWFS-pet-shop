@@ -8,15 +8,18 @@
 
 const usuarios = [
     {
-        "mail": "natalia@gmail",
+        "mail": "natalia@mail.com",
+        "nombre": "Natalia",
         "contrasena": 1234
     },
     {
-        "mail": "mariano@gmail",
+        "mail": "mariano@mail.com",
+        "nombre": "Mariano",
         "contrasena": 1235
     },
     {
-        "mail": "sofia@gmail",
+        "mail": "sofia@mail.com",
+        "nombre": "Sofía",
         "contrasena": 1236
     }
 ]
@@ -72,7 +75,14 @@ btnIngresar.addEventListener("click", (e) => {
         if (usuario_ingresado.length && contrasena_ingresada.length) {
             for (let i = 0; i < usuarios.length; i++) {
                 if (usuarios[i].mail == usuario_ingresado && usuarios[i].contrasena == contrasena_ingresada) {
-                    document.getElementById("aviso").innerHTML = ""
+                    //Guarda el nombre y el log en el localStored
+                    const userData = {
+                        "logged": "true",
+                        "nombre": usuarios[i].nombre
+                    };
+                    let userString = JSON.stringify(userData);
+                    localStorage.setItem('login', userString);
+                    document.getElementById("aviso").innerHTML = "";
                     window.location.href = "../carpeta-html/inventario.html";
                 }
             }
@@ -86,6 +96,27 @@ btnIngresar.addEventListener("click", (e) => {
 })
 
 
+document.addEventListener('DOMContentLoaded', function () {
+    if (localStorage.getItem('login')) {
+        let userString = localStorage.getItem('login');
+        let userDatos = JSON.parse(userString);
+        let navInventario = document.getElementById('navInventario');
+        navInventario.innerHTML = '<a class="nav-link" href="inventario.html">Inventario</a>';
+        let navNombre = document.getElementById('navLog');
+        navNombre.innerHTML = '<h6 class="m-2">'+userDatos.nombre+'</h6><button class="btn btn-outline-warning" id="salirBtn">Salir</button>';
+        //Salir
+        let salirBtn = document.getElementById('salirBtn');
+        salirBtn.addEventListener('click', function() {
+            localStorage.removeItem('login');
+            window.location.href = "../carpeta-html/inicio.html";
+        });
+    }else{
+        let navInventario = document.getElementById('navInventario');
+        navInventario.innerHTML = '';
+        let navNombre = document.getElementById('navLog');
+        navNombre.innerHTML = '<a class="btn btn-outline-warning" href="login.html">Ingresar</a>';
+    }
+});
 //***********************************************************/
 
 

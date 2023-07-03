@@ -1,0 +1,62 @@
+body {
+    background: linear-gradient(rgb(218, 232, 184), rgb(225, 193, 133), white);
+}
+
+#navSuperior {
+    background-color: rgb(218, 232, 184);
+    border: solid 2px rgb(248, 247, 245);
+}
+
+footer .card-body {
+    background-color: rgb(234, 240, 239);
+    box-shadow: 4px 4px 4px 4px rgb(0, 0, 0, 0.2);
+    border: solid rgb(246, 242, 242) 4px;
+    border-radius: 5px;
+}
+
+footer {
+    border-top: solid rgb(86, 85, 85) 1px;
+    text-align: center;
+    background-color: rgb(218, 232, 184);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.sombra {
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.38);
+}
+
+#contenedorPrincipal {
+    margin-top: 20px;
+    padding: 10px;
+}
+
+#listaProductos {
+    margin-top: 20px;
+}
+
+/* #listaProductos li {
+    height: 170px;
+} */
+
+.imagen-listado {
+    max-width: 150px;
+    max-height: 150px;
+}
+
+#nuevoProducto{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+label{
+    font-weight: bold;
+}
+
+#listaProductos h6 {
+    margin-top: 20px;
+}
+
+#eliminarSeleccionadosM {
+    margin-top: 20px;
+}
