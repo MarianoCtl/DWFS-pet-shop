@@ -1,7 +1,7 @@
 //Carga la visual de productos al ingresar a la pagina
 document.addEventListener('DOMContentLoaded', function () {
-    // Verifica si ya existe "productos" en el localStorage
-    if (!localStorage.getItem('productos')) {
+    // Verifica si ya existe "productos" en el sessionStorage
+    if (!sessionStorage.getItem('productos')) {
         //Crea el arreglo para los productos
         //El listado de productos cuenta con algunos básicos para que no comience vacío
         let productos = [
@@ -57,11 +57,11 @@ document.addEventListener('DOMContentLoaded', function () {
         ];
 
         let productosString = JSON.stringify(productos);
-        localStorage.setItem('productos', productosString);
+        sessionStorage.setItem('productos', productosString);
     }
     actualizaListaProductos();
-    if (localStorage.getItem('login')) {
-        let userString = localStorage.getItem('login');
+    if (sessionStorage.getItem('login')) {
+        let userString = sessionStorage.getItem('login');
         let userDatos = JSON.parse(userString);
         let navInventario = document.getElementById('navInventario');
         navInventario.innerHTML = '<a class="nav-link" href="inventario.html">Inventario</a>';
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
         //Salir
         let salirBtn = document.getElementById('salirBtn');
         salirBtn.addEventListener('click', function() {
-            localStorage.removeItem('login');
+            sessionStorage.removeItem('login');
             window.location.href = "../carpeta-html/inicio.html";
         });
     }else{
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //Actualiza lista productos para la vista de todos
 function actualizaListaProductos() {
-    let productosString = localStorage.getItem('productos');
+    let productosString = sessionStorage.getItem('productos');
     let productosDatos = JSON.parse(productosString);
 
     let listaProductosDiv = document.getElementById('listaProductos');
