@@ -1,7 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
-    if (localStorage.getItem('login')) {
-        let userString = localStorage.getItem('login');
+    if (sessionStorage.getItem('login')) {
+        let userString = sessionStorage.getItem('login');
         let userDatos = JSON.parse(userString);
         let navInventario = document.getElementById('navInventario');
         navInventario.innerHTML = '<a class="nav-link" href="inventario.html">Inventario</a>';
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
         //Salir
         let salirBtn = document.getElementById('salirBtn');
         salirBtn.addEventListener('click', function() {
-            localStorage.removeItem('login');
+            sessionStorage.removeItem('login');
             window.location.href = "../carpeta-html/inicio.html";
         });
     }else{

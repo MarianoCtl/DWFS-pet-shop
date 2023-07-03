@@ -1,41 +1,69 @@
 //Carga la visual de productos al ingresar a la pagina
 document.addEventListener('DOMContentLoaded', function () {
-    // Verifica si ya existe "productos" en el localStorage
-    if (!localStorage.getItem('productos')) {
+    // Verifica si ya existe "productos" en el sessionStorage
+    if (!sessionStorage.getItem('productos')) {
         //Crea el arreglo para los productos
         //El listado de productos cuenta con algunos básicos para que no comience vacío
         let productos = [
             {
                 id: 0,
-                nombre: 'Accesorio 1',
-                imagen: '../images/pet_shop.jpg',
-                descripcion: 'Descripción Accesorio 1',
+                nombre: 'Correas para perro',
+                imagen: '../images/productos/correas_perro.jpg',
+                descripcion: 'Correa con gancho resistente de 3mts.',
                 categoria: 'accesorios'
             },
             {
                 id: 1,
-                nombre: 'Accesorio 2',
-                imagen: '../images/pet_shop.jpg',
-                descripcion: 'Descripción Accesorio 2',
+                nombre: 'Comedero',
+                imagen: '../images/productos/comedero.jpg',
+                descripcion: 'Depósito para comida o agua de 20cm de diámetro.',
                 categoria: 'accesorios'
             },
             {
                 id: 2,
-                nombre: 'Accesorio 3',
-                imagen: '../images/pet_shop.jpg',
-                descripcion: 'Descripción Accesorio 3',
+                nombre: 'Cuchita',
+                imagen: '../images/productos/cuchita.jpg',
+                descripcion: 'Cuchita para mascotas. Tamaño mediano. cubierta con gomaespuma para más comodidad.',
                 categoria: 'accesorios'
+            },
+            {
+                id: 3,
+                nombre: 'DogChow',
+                imagen: '../images/productos/dogChow_alimento.jpg',
+                descripcion: 'Purina Dog Chow para perros.',
+                categoria: 'alimentos'
+            },
+            {
+                id: 4,
+                nombre: 'Excellent',
+                imagen: '../images/productos/excelence_alimento.jpg',
+                descripcion: 'Purina Excellent para gatos adultos.',
+                categoria: 'alimentos'
+            },
+            {
+                id: 5,
+                nombre: 'Frontline',
+                imagen: '../images/productos/pipeta_frontline.jpg',
+                descripcion: 'Pipeta Frontline 5-10kg. Para perros.',
+                categoria: 'pipetas'
+            },
+            {
+                id: 6,
+                nombre: 'NexGard',
+                imagen: '../images/productos/pipeta_nexGard.jpg',
+                descripcion: 'Pipeta Frontline 1-50kg. Para perros.',
+                categoria: 'pipetas'
             },
         ];
 
         //Convierte el JSON a una cadena
         let productosString = JSON.stringify(productos);
-        //Almacena la cadena en el localStorage
-        localStorage.setItem('productos', productosString);
+        //Almacena la cadena en el sessionStorage
+        sessionStorage.setItem('productos', productosString);
     }
 
-    if (localStorage.getItem('login')) {
-        let userString = localStorage.getItem('login');
+    if (sessionStorage.getItem('login')) {
+        let userString = sessionStorage.getItem('login');
         let userDatos = JSON.parse(userString);
         let navInventario = document.getElementById('navInventario');
         navInventario.innerHTML = '<a class="nav-link" href="inventario.html">Inventario</a>';
@@ -44,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
         //Salir
         let salirBtn = document.getElementById('salirBtn');
         salirBtn.addEventListener('click', function() {
-            localStorage.removeItem('login');
+            sessionStorage.removeItem('login');
             window.location.href = "../carpeta-html/inicio.html";
         });
     }else{
@@ -62,7 +90,7 @@ let form = document.getElementById('formularioProductos');
 form.addEventListener('submit', function (e) {
     e.preventDefault(); //Previene el envío del formulario
 
-    let productosString = localStorage.getItem('productos');
+    let productosString = sessionStorage.getItem('productos');
     let productosDatos = JSON.parse(productosString);
 
     //obtengo el último id para sumar 1
@@ -94,7 +122,7 @@ form.addEventListener('submit', function (e) {
         productosDatos.push(nuevoProducto);
 
         let productosString = JSON.stringify(productosDatos);
-        localStorage.setItem('productos', productosString);
+        sessionStorage.setItem('productos', productosString);
         //Llama a la funcion para generar la vista
         actualizaListaProductos();
     };
@@ -106,7 +134,7 @@ form.addEventListener('submit', function (e) {
 
 //Actualiza lista productos para la vista de todos
 function actualizaListaProductos() {
-    let productosString = localStorage.getItem('productos');
+    let productosString = sessionStorage.getItem('productos');
     let productosDatos = JSON.parse(productosString);
 
     let listaProductosDiv = document.getElementById('listaProductos');
@@ -268,7 +296,7 @@ function actualizaListaProductos() {
                     }
 
                     let productosString = JSON.stringify(productosDatos);
-                    localStorage.setItem('productos', productosString);
+                    sessionStorage.setItem('productos', productosString);
                     
                     // Cierra el modal
                     let eliminarModal = document.getElementById('eliminarModal');
@@ -438,7 +466,7 @@ function actualizaListaProductos() {
 
                                 
                                 let productosString = JSON.stringify(productosDatos);
-                                localStorage.setItem('productos', productosString);
+                                sessionStorage.setItem('productos', productosString);
                                 actualizaListaProductos();
                             };
                             reader.readAsDataURL(imagen);
@@ -448,7 +476,7 @@ function actualizaListaProductos() {
                             productosDatos[indexProducto].categoria = categoria;
 
                             let productosString = JSON.stringify(productosDatos);
-                            localStorage.setItem('productos', productosString);
+                            sessionStorage.setItem('productos', productosString);
                             actualizaListaProductos();
                         }
                     }
@@ -468,7 +496,7 @@ function actualizaListaProductos() {
 //Elimina los productos seleccionados
 let eliminarSeleccionados = document.getElementById('eliminarSeleccionados');
 eliminarSeleccionados.addEventListener('click', function() {
-    let productosString = localStorage.getItem('productos');
+    let productosString = sessionStorage.getItem('productos');
     let productosDatos = JSON.parse(productosString);
 
     let checkboxs = document.querySelectorAll('input[type="checkbox"]:checked');
@@ -485,7 +513,7 @@ eliminarSeleccionados.addEventListener('click', function() {
         }
     });
     productosString = JSON.stringify(productosDatos);
-    localStorage.setItem('productos', productosString);
+    sessionStorage.setItem('productos', productosString);
     
     actualizaListaProductos();
 

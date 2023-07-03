@@ -1,0 +1,3 @@
+Cambiamos el uso de localStorage por sessionStorage ya que preferíamos que se borren los datos cuando se cerraba el navegador.
+Usando localStorage estos datos continuaban almacenados.
+Nahuel nos recomendó el uso de sessionStorage para que cumpla con el funcionamiento deseado.

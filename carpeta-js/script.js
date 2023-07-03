@@ -81,7 +81,7 @@ btnIngresar.addEventListener("click", (e) => {
                         "nombre": usuarios[i].nombre
                     };
                     let userString = JSON.stringify(userData);
-                    localStorage.setItem('login', userString);
+                    sessionStorage.setItem('login', userString);
                     document.getElementById("aviso").innerHTML = "";
                     window.location.href = "../carpeta-html/inventario.html";
                 }
@@ -97,8 +97,8 @@ btnIngresar.addEventListener("click", (e) => {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    if (localStorage.getItem('login')) {
-        let userString = localStorage.getItem('login');
+    if (sessionStorage.getItem('login')) {
+        let userString = sessionStorage.getItem('login');
         let userDatos = JSON.parse(userString);
         let navInventario = document.getElementById('navInventario');
         navInventario.innerHTML = '<a class="nav-link" href="inventario.html">Inventario</a>';
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
         //Salir
         let salirBtn = document.getElementById('salirBtn');
         salirBtn.addEventListener('click', function() {
-            localStorage.removeItem('login');
+            sessionStorage.removeItem('login');
             window.location.href = "../carpeta-html/inicio.html";
         });
     }else{
