@@ -1,38 +1,16 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
     background: linear-gradient(rgb(218, 232, 184), rgb(225, 193, 133), white);
 }
 
 #navSuperior {
-    background-color: rgb(190, 186, 186);
-    border: solid 3px rgb(248, 247, 245);
+    background-color: rgb(218, 232, 184);
+    border: solid 2px rgb(248, 247, 245);
 }
 
 header {
-    width: 100%;
-    height: 230px;
+    height: 250px;
     background-color: rgb(218, 232, 184);
-    background-attachment: fixed;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border: solid 10px rgb(190, 186, 186);
-    box-shadow: 11px 11px 11px 11px rgb(0, 0, 0, 0.2);
-}
-
-.leter {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgb(9, 9, 9);
-
+    box-shadow: 5px 5px 5px 5px rgb(0, 0, 0, 0.2);
 }
 
 h1 {
@@ -41,58 +19,35 @@ h1 {
 }
 
 .carrusel {
-    display: flex;
-    justify-content: center;
     width: 50%;
     height: auto;
-
 }
 
-.carousel-item {
-    object-fit: scale-down;
+.carousel-img {
     border: solid white 4px;
+    border-radius: 5px;
+}
+#carouselHeader {
+    width: 240px;
 }
 
-
-
-
-
-.container-sm {
-    margin: 10% 0px 40px 0px;
-}
-
-.col-sm-6 {
-    text-align: center;
+#historiaDiv {
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .card-body {
     background-color: rgb(234, 240, 239);
-    box-shadow: 9px 9px 9px 9px rgb(0, 0, 0, 0.2);
+    box-shadow: 4px 4px 4px 4px rgb(0, 0, 0, 0.2);
     border: solid rgb(246, 242, 242) 4px;
+    border-radius: 5px;
 }
 
 footer {
-    border-top: solid rgb(86, 85, 85) 4px;
+    border-top: solid rgb(86, 85, 85) 1px;
     text-align: center;
-    background-color: rgb(219, 217, 215);
-    padding-top: 3%;
-
-}
-
-@media (max-width:400px) {
-    header {
-        display: block;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .leter {
-        width: 100%;
-    }
-
-    .carrusel {
-        width: 100%;
-
-    }
+    background-color: rgb(218, 232, 184);
+    padding-top: 15px;
+    padding-bottom: 15px;
 
 }
