@@ -71,38 +71,34 @@ btnIngresar.addEventListener("click", (e) => {
     let captchaActual = document.getElementById("captcha-generator").textContent;
 
     if (usuario_ingresado.length && contrasena_ingresada.length && captchaIngresado.length) {
-        //con el for, busca dentro del arreglo si coinciden los valores usuario y contraseña ingresados.
+        let usuarioEncontrado = false; // Variable por si se encuentra el usuario y contraseña
         for (let i = 0; i < usuarios.length; i++) {
-            
             if (usuarios[i].mail == usuario_ingresado && usuarios[i].contrasena == contrasena_ingresada) {
+                usuarioEncontrado = true;
                 document.getElementById("aviso").innerHTML = "";
                 if (comprobar_captcha(captchaActual, captchaIngresado, acceso) == true) {
                     document.getElementById("aviso").innerHTML = "";
-                    //Guarda el nombre y el log en el localStored
                     const userData = {
                         "logged": "true",
                         "nombre": usuarios[i].nombre
                     };
                     let userString = JSON.stringify(userData);
                     sessionStorage.setItem('login', userString);
-                    //Redirecciona a la pagina de Inventario.
                     window.location.href = "../carpeta-html/inventario.html";
                 } else {
-                     //avisa que hay error en el captcha.
                     document.getElementById("aviso").innerHTML = "Captcha incorrecto";
-                    break;
                 }
-
-            } else {
-                document.getElementById("aviso").innerHTML = "Usuario y o contraseña incorrectos. Intente nuevamente." //avisa que hay error.
-                break;
+                break; // Coincide el usuario y la contraseña, corta el bucle
             }
         }
-
+        
+        if (!usuarioEncontrado) {
+            document.getElementById("aviso").innerHTML = "Usuario y/o contraseña incorrectos. Intente nuevamente.";
+        }
     } else {
-        document.getElementById("aviso").innerHTML = "Complete campos vacios."
+        document.getElementById("aviso").innerHTML = "Complete campos vacíos.";
     }
-})
+});
 
 
 document.addEventListener('DOMContentLoaded', function () {
