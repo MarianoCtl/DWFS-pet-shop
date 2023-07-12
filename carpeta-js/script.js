@@ -70,11 +70,11 @@ btnIngresar.addEventListener("click", (e) => {
     let captchaIngresado = document.getElementById("captchaIngresado").value;
     let captchaActual = document.getElementById("captcha-generator").textContent;
 
-    if (comprobar_captcha(captchaActual, captchaIngresado, acceso) == true) {
+    if (usuario_ingresado.length && contrasena_ingresada.length) {
         //con el for, busca dentro del arreglo si coinciden los valores usuario y contraseña ingresados.
-        if (usuario_ingresado.length && contrasena_ingresada.length) {
-            for (let i = 0; i < usuarios.length; i++) {
-                if (usuarios[i].mail == usuario_ingresado && usuarios[i].contrasena == contrasena_ingresada) {
+        for (let i = 0; i < usuarios.length; i++) {
+            if (usuarios[i].mail == usuario_ingresado && usuarios[i].contrasena == contrasena_ingresada) {
+                if (comprobar_captcha(captchaActual, captchaIngresado, acceso) == true) {
                     //Guarda el nombre y el log en el localStored
                     const userData = {
                         "logged": "true",
@@ -84,14 +84,13 @@ btnIngresar.addEventListener("click", (e) => {
                     sessionStorage.setItem('login', userString);
                     document.getElementById("aviso").innerHTML = "";
                     window.location.href = "../carpeta-html/inventario.html";
+                }else {
+                    document.getElementById("aviso").innerHTML = "Captcha incorrecto";
                 }
             }
-
-        }else{ 
-            document.getElementById("aviso").innerHTML = "Usuario y o contraseña incorrectos. Intente nuevamente." //avisa que hay error
         }
-    }else {
-        document.getElementById("aviso").innerHTML = "Captcha incorrecto";
+    }else{ 
+        document.getElementById("aviso").innerHTML = "Usuario y o contraseña incorrectos. Intente nuevamente." //avisa que hay error
     }
 })
 
