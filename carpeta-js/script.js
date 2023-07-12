@@ -70,11 +70,14 @@ btnIngresar.addEventListener("click", (e) => {
     let captchaIngresado = document.getElementById("captchaIngresado").value;
     let captchaActual = document.getElementById("captcha-generator").textContent;
 
-    if (usuario_ingresado.length && contrasena_ingresada.length) {
+    if (usuario_ingresado.length && contrasena_ingresada.length && captchaIngresado.length) {
         //con el for, busca dentro del arreglo si coinciden los valores usuario y contraseña ingresados.
         for (let i = 0; i < usuarios.length; i++) {
+            
             if (usuarios[i].mail == usuario_ingresado && usuarios[i].contrasena == contrasena_ingresada) {
+                document.getElementById("aviso").innerHTML = "";
                 if (comprobar_captcha(captchaActual, captchaIngresado, acceso) == true) {
+                    document.getElementById("aviso").innerHTML = "";
                     //Guarda el nombre y el log en el localStored
                     const userData = {
                         "logged": "true",
@@ -82,15 +85,22 @@ btnIngresar.addEventListener("click", (e) => {
                     };
                     let userString = JSON.stringify(userData);
                     sessionStorage.setItem('login', userString);
-                    document.getElementById("aviso").innerHTML = "";
+                    //Redirecciona a la pagina de Inventario.
                     window.location.href = "../carpeta-html/inventario.html";
-                }else {
+                } else {
+                     //avisa que hay error en el captcha.
                     document.getElementById("aviso").innerHTML = "Captcha incorrecto";
+                    break;
                 }
+
+            } else {
+                document.getElementById("aviso").innerHTML = "Usuario y o contraseña incorrectos. Intente nuevamente." //avisa que hay error.
+                break;
             }
         }
-    }else{ 
-        document.getElementById("aviso").innerHTML = "Usuario y o contraseña incorrectos. Intente nuevamente." //avisa que hay error
+
+    } else {
+        document.getElementById("aviso").innerHTML = "Complete campos vacios."
     }
 })
 
@@ -102,14 +112,14 @@ document.addEventListener('DOMContentLoaded', function () {
         let navInventario = document.getElementById('navInventario');
         navInventario.innerHTML = '<a class="nav-link" href="inventario.html">Inventario</a>';
         let navNombre = document.getElementById('navLog');
-        navNombre.innerHTML = '<h6 class="m-2">'+userDatos.nombre+'</h6><button class="btn btn-outline-warning" id="salirBtn">Salir</button>';
+        navNombre.innerHTML = '<h6 class="m-2">' + userDatos.nombre + '</h6><button class="btn btn-outline-warning" id="salirBtn">Salir</button>';
         //Salir
         let salirBtn = document.getElementById('salirBtn');
-        salirBtn.addEventListener('click', function() {
+        salirBtn.addEventListener('click', function () {
             sessionStorage.removeItem('login');
             window.location.href = "../carpeta-html/inicio.html";
         });
-    }else{
+    } else {
         let navInventario = document.getElementById('navInventario');
         navInventario.innerHTML = '';
         let navNombre = document.getElementById('navLog');
